@@ -39,6 +39,7 @@ class KafkaConsumer:
         self.broker_properties = {
             "group.id": topic_name_pattern,
             "bootstrap.servers": "PLAINTEXT://localhost:9092",
+            "auto.offset.reset": "earliest" if offset_earliest else "latest",
         }
 
         logger.debug(self.broker_properties)
